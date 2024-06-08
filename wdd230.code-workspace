@@ -8,6 +8,12 @@
         },
         {
             "path": "../../BYU/wdd230"
+        },
+        {
+            "path": "."
         }
-    ]
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "to-do-list"
+    }
 }

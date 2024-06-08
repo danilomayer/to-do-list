@@ -18,19 +18,21 @@
 </head>
 
 <body>
-    <header>
-        <h1>To-Do List</h1>
-    </header>
+    <div id="myDIV" class="header">
+        <h1>My To-Do List</h1>
+        <input type="text" id="myInput" placeholder="Task...">
+        <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
 
-    <main>
-
-    </main>
-
-    <footer>
-        <p>&copy; <span id="currentdate"></span> 🤘 Danilo Mayer 🤘</p>
-        <p id="lastModified"></p>
-    </footer>
-    <script src="scripts/getdates.js"></script>
+    <ul id="myUL">
+        <li>Workout</li>
+        <li class="checked">Pay bills</li>
+        <li>Read the scriptures</li>
+        <li>Buy groceries</li>
+        <li>Read my books</li>
+        <li>Practice Java Script</li>
+    </ul>
+    <script src="scripts/scripts.js"></script>
 </body>
 
 </html>

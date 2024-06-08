@@ -1,0 +1,81 @@
+//create a "close" button to append it to each list item
+var myNodelist = document.getElementsByTagName('LI');
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+    var span = document.createElement('SPAN');
+    var txt = document.createTextNode('\u00D7');
+    span.className = 'close';
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName('close');
+var i;
+for (i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+        var div = this.parentElement;
+        div.style.display = 'none';
+    }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function (ev) {
+    if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+    }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+    var li = document.createElement('li');
+    var inputValue = document.getElementById('myInput').value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    if (inputValue === '') {
+        alert("You must write something!");
+    } else {
+        document.getElementById('myUL').appendChild(li);
+    }
+    document.getElementById('myInput').value = '';
+
+    var span = document.createElement('SPAN');
+    var txt = document.createTextNode('\u00D7');
+    span.className = 'close';
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.display = 'none';
+        }
+    }
+}
+
+//Current Year
+document.addEventListener("DOMContentLoaded", function () {
+    var currentYear = new Date().getFullYear();
+    var year = document.getElementById("currentYear");
+    if (year) {
+        year.textContent = currentYear;
+    }
+
+    var lastModified = new Date(document.lastModified);
+
+    var formattedLastModified = lastModified.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZoneName: "short"
+    });
+
+    var lastModifiedElement = document.getElementById("lastModified");
+    if (lastModifiedElement) {
+        lastModifiedElement.textContent = "Last modified: " + formattedLastModified;
+    }
+});
